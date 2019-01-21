@@ -1,0 +1,18 @@
+{
+  "name": "basic_node_server",
+  "version": "1.0.0",
+  "description": "test node server for practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Wolfgang Truong (http://github.com/wolffles)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.16.4",
+    "hash.js": "1.1.7",
+    "javascript-algorithms-and-data-structures": "0.0.4",
+    "nodemon": "1.18.9"
+  }
+}
