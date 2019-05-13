@@ -1,18 +1,22 @@
 {
   "name": "basic_node_server",
   "version": "1.0.0",
-  "description": "test node server for practice",
+  "description": "* mocha uses GlOBALS ( reduces boilerplate, a developer erogonomics ) * unit testing is testing a function in a file * intergration tests, test multiple units in one test to see if it works together.  * mocha doesnt have any assertion functionality it uses Node's assert module * supertest for intergration tests against Express servers $ `npm install -D mocha supertest`",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "test": "mocha",
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "author": "Wolfgang Truong (http://github.com/wolffles)",
   "license": "MIT",
   "dependencies": {
+    "axios": "0.18.0",
     "express": "4.16.4",
-    "hash.js": "1.1.7",
-    "javascript-algorithms-and-data-structures": "0.0.4",
-    "nodemon": "1.18.9"
+    "mongodb": "3.2.4",
+    "mongoose": "5.5.7"
+  },
+  "devDependencies": {
+    "nodemon": "1.19.0"
   }
 }
