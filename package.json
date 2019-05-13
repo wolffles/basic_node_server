@@ -4,7 +4,7 @@
   "description": "* mocha uses GlOBALS ( reduces boilerplate, a developer erogonomics ) * unit testing is testing a function in a file * intergration tests, test multiple units in one test to see if it works together.  * mocha doesnt have any assertion functionality it uses Node's assert module * supertest for intergration tests against Express servers $ `npm install -D mocha supertest`",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --exit",
     "start": "node index",
     "dev": "nodemon index"
   },
@@ -17,6 +17,9 @@
     "mongoose": "5.5.7"
   },
   "devDependencies": {
-    "nodemon": "1.19.0"
+    "chai": "4.2.0",
+    "mocha": "6.1.4",
+    "nodemon": "1.19.0",
+    "supertest": "4.0.2"
   }
 }

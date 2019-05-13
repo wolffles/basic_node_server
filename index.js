@@ -42,13 +42,13 @@ app.get('/people', (req,res) => {
 
 app.post('/updatePerson', (req, res) => {
   People.findOneAndUpdate({name: req.body.name}, {name: req.body.newName})
-    .then(person => res.send(`person has been updated to ${req.body.newName}`))
+    .then(person => res.json({msg:`person has been updated to ${req.body.newName}`}))
     .catch(err => console.log(err))
 })
 
 app.post('/deletePerson', (req, res) => {
   People.findOneAndDelete({name: req.body.name})
-    .then(person => res.json({person:person,msg: 'person has been deleted'}))
+    .then(person => res.json({person:person, msg: 'person has been deleted'}))
 })
 
 app.post('/addPerson', (req,res)=> {
@@ -61,3 +61,5 @@ app.post('/addPerson', (req,res)=> {
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
+
+module.exports = app
