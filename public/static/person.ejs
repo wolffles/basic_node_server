@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>people</title>
+  <link rel='stylesheet' href='css/style.css'>
+</head>
+
+<body>
+  <form class='add' action='/addPerson' method="POST">
+    <h1> Person submit</h1>
+    <input type="text" name='name' placeholder="enter your name">
+    <button type='submit'>add person</button>
+  </form>
+
+
+  
+  <div class='people'>
+  <button onclick="loadPeople()" id='load-people'>load-people</button>
+    <div id="target">
+    </div>
+  </div>
+
+  <form class='update' action='/updatePerson' method="POST">
+    <h1>Update person</h1>
+    <input type="text" name='name' placeholder="enter current name">
+    <input type="text" name='newName' placeholder="change name to...">
+    <button type="submit">update person</button>
+  </form>
+
+<!-- form action is redered useless because of code in people.js -->
+  <form class='delete' action='/deletePerson' method="POST">
+    <h1> Person Delete</h1>
+    <input type="text" id="delete-input" name='name' placeholder="enter the name">
+    <button type='submit'>delete</button>
+  </form>
+
+  <script src="../partials/loadPeople.js"></script>
+</body>
+
+</html>

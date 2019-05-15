@@ -9,4 +9,4 @@ this repository is intended to use as a reference in making a basic node/express
 * applying middleware using express
 * unit testing w/ mocha
 * intergration testing w/ supertest
-*
+* using EJS we create dynamic content for static templates

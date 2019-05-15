@@ -6,9 +6,8 @@ const func = require('./utility/is-empty')
 
 const app = express();
 
-
-console.log(func.isEmpty('string'));
 const People = require('./models/People')
+
 //body parser
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -19,19 +18,30 @@ mongoose.connect("mongodb://localhost:27017/practice", {useNewUrlParser: true})
   .catch(err => console.log(err));
 mongoose.set('useFindAndModify', false);
 
-// to send static pages
+// to serve static pages (URL is the name of the file ex: person.html)
 app.use(express.static(path.join(__dirname, 'public')))
 
+// config to serve dynamic pages
+app.set("views", path.join(__dirname, "public", "static"));
+app.set("view engine", "ejs");
 
 // basic route
-// app.get('/', (req,res) => {
-//   res.send('<h1> landing page!!!!!! </h1>');
-// })
+app.get('/', (req,res) => {
+  res.send('<h1> landing page!!!!!! </h1>');
+})
 
 // send a html file not static ( will have trouble with loading js scripts in html)
 // app.get('/person', (req,res) => {
 //   res.sendFile(path.join(__dirname, '/public', 'person.html'));
 // })
+
+// --------------- VIEWS ROUTES ---------------------
+app.get('/person', (req,res)=>{
+  res.render('person.ejs', {people: []})
+})
+
+
+// ---------------- API ROUTES -----------------------
 
 app.get('/people', (req,res) => {
   People.find()
@@ -47,8 +57,9 @@ app.post('/updatePerson', (req, res) => {
 })
 
 app.post('/deletePerson', (req, res) => {
-  People.findOneAndDelete({name: req.body.name})
-    .then(person => res.json({person:person, msg: 'person has been deleted'}))
+  People.findOneAndDelete({ name: req.body.name })
+    .then(person => res.json({ msg: "person has been deleted" }))
+    .catch(err => res.send(err));
 })
 
 app.post('/addPerson', (req,res)=> {
@@ -57,6 +68,8 @@ app.post('/addPerson', (req,res)=> {
   })
   newPerson.save().then(person => res.json(person));
 })
+
+// ---------------------- END API ROUTES --------------------------
 
 
 const port = process.env.PORT || 5000;
