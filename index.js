@@ -40,6 +40,10 @@ app.get('/person', (req,res)=>{
   res.render('person.ejs', {people: []})
 })
 
+app.get('/storage', (req,res) => {
+  res.render('storage.ejs')
+})
+
 
 // ---------------- API ROUTES -----------------------
 

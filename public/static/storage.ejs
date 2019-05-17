@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cookies vs localStorage vs sessionStorage</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center">Cookies vs. Local Storage vs. Session Storage</h1>
+    <table class="table table-striped">
+      <thead class="thead-inverse">
+        <tr>
+          <th></th>
+          <th>Cookies</th>
+          <th>Local Storage</th>
+          <th>Session Storage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Capacity</th>
+          <td>4kb</td>
+          <td>10mb</td>
+          <td>5mb</td>
+        </tr>
+        <tr>
+          <th scope="row">Browsers</th>
+          <td>HTML4 / HTML 5</td>
+          <td>HTML 5</td>
+          <td>HTML 5</td>
+        </tr>
+        <tr>
+          <th scope="row">Accessible from</th>
+          <td>Any window</td>
+          <td>Any window</td>
+          <td>Same tab</td>
+        </tr>
+        <tr>
+          <th scope="row">Expires</th>
+          <td>Manually set</td>
+          <td>Never</td>
+          <td>On tab close</td>
+        </tr>
+        <tr>
+          <th scope="row">Storage Location</th>
+          <td>Browser and server</td>
+          <td>Browser only</td>
+          <td>Browser only</td>
+        </tr>
+        <tr>
+          <th scope="row">Sent with requests</th>
+          <td>Yes</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <ul> notes on cookies: 
+      <li>cookies are best for data and anything that needs to be accessed by the server or local machine, or anything you want to
+      set an expiration date on.</li>
+      <li>authentication information.</li>
+    </ul>
+    <ul>local storage: 
+      <li>local storage is good for anything else</li>
+      <li>session storage or local storage</li>
+    </ul>
+
+  <div> 
+    <h3>choosing hat problem</h3>
+    <div>local storage
+      <p> 70% percent of users see pink</p>
+      <p> 30% see blue background</p>
+      <p> remembers users so when they return it is the same color</p>
+    </div>
+    <div> session storage
+      <p>40% see orange text</p>
+      <p>60 see green text</p>
+    </div>
+    <div> cookie storage
+      <p>50% see white background</p>
+      <p>50% see grey background</p>
+    </div>
+  </div>
+
+
+    <form class='cookieForm'>
+      <input type="text" name="key" placeholder="key">
+      <input type="text" name="value" placeholder="value">
+      <input type="number" name="time expires" placeholder="time in minutes">
+      <button type='submit'>add cookie</button>
+    </form>
+    
+
+
+    <button class='clear storage' onclick='clearStorage()'>clear storage</button>
+    <button class='remove cookies' onclick='clearCookies()'>clear cookies</button>
+  </div>
+  <script src="../partials/storage.js"></script>
+</body>
+
+</html>
