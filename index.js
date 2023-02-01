@@ -40,6 +40,14 @@ app.get('/person', (req,res)=>{
   res.render('person.ejs', {people: []})
 })
 
+app.get('/redirect', (req,res)=>{
+  res.redirect("/person")
+})
+app.get('/sample', (req,res)=>{
+  console.log()
+  res.send("hello")
+})
+
 app.get('/storage', (req,res) => {
   res.render('storage.ejs')
 })
@@ -76,7 +84,7 @@ app.post('/addPerson', (req,res)=> {
 // ---------------------- END API ROUTES --------------------------
 
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
 module.exports = app

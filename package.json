@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --exit",
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "NODE_DEBUG=http,http2 nodemon index"
   },
   "author": "Wolfgang Truong (http://github.com/wolffles)",
   "license": "MIT",
